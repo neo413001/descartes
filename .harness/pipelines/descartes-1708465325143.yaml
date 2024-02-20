@@ -1,0 +1,40 @@
+pipeline:
+  identifier: Build_neo413001_descartes_1708465327408
+  name: Build descartes
+  orgIdentifier: default
+  projectIdentifier: default_project
+  properties:
+    ci:
+      codebase:
+        build: <+input>
+        connectorRef: account.Github_OAuth_1708464582714
+        repoName: neo413001/descartes
+  stages:
+    - stage:
+        identifier: build
+        name: build
+        spec:
+          cloneCodebase: true
+          execution:
+            steps:
+              - step:
+                  identifier: bundleinstall
+                  name: bundle_install
+                  spec:
+                    command: bundle install --local || bundle install
+                  timeout: ""
+                  type: Run
+              - step:
+                  identifier: rake
+                  name: rake
+                  spec:
+                    command: bundle exec rake
+                  timeout: ""
+                  type: Run
+          platform:
+            arch: Arm64
+            os: MacOS
+          runtime:
+            spec: {}
+            type: Docker
+        type: CI
