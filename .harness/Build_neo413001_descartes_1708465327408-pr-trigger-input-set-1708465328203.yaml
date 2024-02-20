@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_neo413001_descartes_1708465327408-pr-trigger-input-set
+  identifier: Build_neo413001_descartes_1708465327408prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: default_project
+  pipeline:
+    identifier: Build_neo413001_descartes_1708465327408
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
