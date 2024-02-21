@@ -1,0 +1,40 @@
+pipeline:
+  identifier: Build_descartes_1708537428337
+  name: Build descartes
+  orgIdentifier: default
+  projectIdentifier: default_project
+  properties:
+    ci:
+      codebase:
+        build: <+input>
+        connectorRef: account.Github_OAuth_1708464582714
+        repoName: descartes
+  stages:
+    - stage:
+        identifier: build
+        name: build
+        spec:
+          cloneCodebase: true
+          execution:
+            steps:
+              - step:
+                  identifier: bundleinstall
+                  name: bundle_install
+                  spec:
+                    command: bundle install --local || bundle install
+                  timeout: ""
+                  type: Run
+              - step:
+                  identifier: rake
+                  name: rake
+                  spec:
+                    command: bundle exec rake
+                  timeout: ""
+                  type: Run
+          platform:
+            arch: Amd64
+            os: Linux
+          runtime:
+            spec: {}
+            type: Cloud
+        type: CI
