@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_descartes_1708537428337-push-trigger-input-set
+  identifier: Build_descartes_1708537428337pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: default_project
+  pipeline:
+    identifier: Build_descartes_1708537428337
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
